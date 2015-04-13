@@ -1,4 +1,6 @@
-%p= review.content
-%p
-  %b= review.rating
-  %em= review.author
+%blockquote.well
+  %p
+    %em= review.content
+  %footer= (link_to review.author, profile_url(review.user_id)) + ", rated: " + review.rating.to_s
+    
+      
