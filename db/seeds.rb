@@ -55,7 +55,7 @@ category_list.each do |name|
 end
 
 product_list.each do |title, description, category_id, price|
-  Product.new(title: title, description: description, category_id: category_id, price: price)
+  Product.create(title: title, description: description, category_id: category_id, price: price)
 end
 
 review_list.each do |content, rating, product_id, user_id|
