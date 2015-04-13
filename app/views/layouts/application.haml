@@ -1,6 +1,7 @@
 !!!
 %html{ lang: 'en' }
   %head
+    %title #{AppConfig.workshops_name}
     %meta{ charset: 'utf-8' }/
     %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
     %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
@@ -12,10 +13,18 @@
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-header
-          %span.navbar-brand #{AppConfig.workshops_name}
+          %span.navbar-brand
+            = link_to "#{AppConfig.workshops_name}", root_path
         %p.navbar-text.navbar-right
-          Links should go here
-    .container-fluid
+          -if !user_signed_in?
+            = link_to "Sign in", new_user_session_path
+            or 
+            = link_to "Sign up", new_user_registration_path
+          -else
+            = link_to "Profile", profile_url(current_user)
+            = link_to "Logout", destroy_user_session_path, method: :delete
+    .container
       .row
-        .col-lg-12
-          = yield
+        %p#notice= notice
+        %p#error= flash[:error]
+    = yield
