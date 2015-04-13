@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # User list data
+# email, password, password_confirmation, firstname, lastname, admin
 user_list = [
   ["tomriddle@voldemort.com", "t0mr1ddl3!@", "t0mr1ddl3!@", "Tom", "Riddle", false],
 	["haroldfinch@decima.com", "h44r0ld1@@!", "h44r0ld1@@!", "Harold", "Finch", false],
@@ -17,6 +18,7 @@ user_list = [
 ]
 
 # Category list data
+# name
 category_list = [
 	"Drama",
 	"Action", 
@@ -25,6 +27,7 @@ category_list = [
 ]
 
 # Product list data
+# title, description, category_id, user_id, price
 product_list = [
 	["Person of Interest", "An ex-CIA hitman partners with a scientist to precent crimes before they occur", 1, 14.99],
 	["Supernatural", "Two brothers fight with supernatural beings to make earth a peaceful place.", 2, 19.50],
@@ -35,7 +38,26 @@ product_list = [
 ]
 
 # Review list data
+# content, rating, product_id, user_id
 review_list = [
+ 	["Great show! Love Bryan Cryanston as Walter White!", 5, 5, 1],
+	["Love it! Is not Dean just most handsome man, ever?", 1, 2, 5],
+	["And now we do not work in secret anymore...", 2, 1, 2],
+	["Ups, I wanted to give a rating of 0.", 0, 1, 2],
+	["A great show about greatest U.S Marshall that ever lived. Smiley-face.", 4, 4, 3],
+	["I don\'t normally like ghosts and demons, but i like them in this show!", 3, 2, 4],
+	["Great show! Love Bryan Cryanston as Walter White!", 5, 5, 1],
+	["Love it! Is not Dean just most handsome man, ever?", 1, 2, 5],
+	["And now we do not work in secret anymore...", 2, 1, 2],
+	["Ups, I wanted to give a rating of 0.", 0, 1, 2],
+	["A great show about greatest U.S Marshall that ever lived. Smiley-face.", 4, 4, 3],
+	["I don\'t normally like ghosts and demons, but i like them in this show!", 3, 2, 4],
+	["Great show! Love Bryan Cryanston as Walter White!", 5, 5, 1],
+	["Love it! Is not Dean just most handsome man, ever?", 1, 2, 5],
+	["And now we do not work in secret anymore...", 2, 1, 2],
+	["Ups, I wanted to give a rating of 0.", 0, 1, 2],
+	["A great show about greatest U.S Marshall that ever lived. Smiley-face.", 4, 4, 3],
+	["I don\'t normally like ghosts and demons, but i like them in this show!", 3, 2, 4],
 	["Great show! Love Bryan Cryanston as Walter White!", 5, 5, 1],
 	["Love it! Is not Dean just most handsome man, ever?", 1, 2, 5],
 	["And now we do not work in secret anymore...", 2, 1, 2],
