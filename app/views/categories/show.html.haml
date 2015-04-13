@@ -1,17 +1,42 @@
-%p#notice= notice
+.container
+  .row
+    .col-md-4
+      = link_to 'Back', root_url
+    - if current_user && current_user.admin?
+      .col-md-8
+        %p.text-right
+          =link_to 'Edit', edit_category_path(category)
+          \|
+          =link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }
+.container
+  .row
+    .col-md-12
+      .row
+        .col-md-9
+          %h1= category.name
+          - category.products.each do |product|
+            .col-sm-4.col-md-4
+              .thumbnail
+                %img(src="http://placehold.it/242x200")
+                .caption
+                  %h4= link_to product.title, category_product_url(category, product)
+                  = product.description
+                  .row
+                    .col-md-8
+                      %p.text-left
+                        Rating:
+                        = (product.average_rating > 0) ? product.average_rating : 'Not rated yet!'
+                    .col-md-4
+                      %p.text-right= '$' + product.price.to_s
 
-%p
-  %b Name:
-  = category.name
 
-%p
-  - category.products.each do |product|
-    = product.title
+- if current_user && current_user.admin?
+  .container
+    .jumbotron
+      .row
+        .col-md-4
+        .col-md-4
+          %p
+            %h3 New product
+            = render 'products/form'
 
-%p
-  %h3 New product
-  = render 'products/form'
-
-= link_to 'Edit', edit_category_path(category)
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'

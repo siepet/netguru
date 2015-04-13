@@ -1,7 +1,13 @@
-%h1 Editing category
+.container
+  .row
+    .col-md-4
+      = link_to 'Back', categories_path
+      \|
+      = link_to 'Show', category
+.container
+  .jumbotron
+    .row
+      .col-md-12    
+        %h1 Editing category
 
-= render 'form'
-
-= link_to 'Show', category
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+        = render 'form'

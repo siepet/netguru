@@ -1,19 +1,31 @@
-%h1 Listing categories
+.container
+  .row
+    .col-md-3
+      %h1 Categories
+      %table.table.table-hover.table-bordered
+        - categories.each do |category|
+          %tr
+            %td= link_to category.name, category_url(category)
+            - if current_user && current_user.admin? && !current_user.admin? 
+              %td= link_to 'Show', category
+              %td= link_to 'Edit', edit_category_path(category)
+              %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+      - if current_user && current_user.admin?
+        =link_to 'New category', new_category_path
+    .col-md-9
+      %h1 Shows
+      - @products.each do |product|
+        .col-sm-4.col-md-4
+          .thumbnail
+            %img(src="http://placehold.it/242x200")
+            .caption
+              %h4= link_to product.title, category_product_url(product.category_id, product)
+              %p= product.description
+              .row
+                .col-md-8
+                  %p.text-left
+                    Rating: 
+                    = (product.average_rating > 0) ? product.average_rating.to_s.slice(0..3) : 'Not rated yet!'
+                .col-md-4
+                  %p.text-right= '$' + product.price.to_s 
 
-%table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - categories.each do |category|
-    %tr
-      %td= category.name
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Category', new_category_path

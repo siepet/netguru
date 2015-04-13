@@ -1,5 +1,11 @@
-%h1 New category
+.container
+  .row
+    .col-md-4
+      = link_to 'Back', categories_path
+.container
+  .jumbotron
+    .row
+      .col-md-12
+        %h1 New category
+        = render 'form'
 
-= render 'form'
-
-= link_to 'Back', categories_path, class: 'btn btn-primary'
